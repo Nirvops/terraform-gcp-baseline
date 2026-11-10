@@ -4,12 +4,12 @@ variable "gcp_project_id" {
 }
 
 variable "gcp_region" {
-  type        = string
-  default     = "europe-west6" # Switzeland
+  type    = string
+  default = "europe-west6" # Switzerland
 }
 
 variable "gcp_zone" {
-  type        = string
-  default     = "europe-west6-b"
+  type    = string
+  default = "europe-west6-b"
 }
 

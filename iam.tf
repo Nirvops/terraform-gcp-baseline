@@ -8,9 +8,9 @@ resource "google_service_account" "gke_nodes" {
 variable "gke_node_roles" {
   type = list(string)
   default = [
-    "roles/logging.logWriter",         # Allows sending logs to Cloud Logging
-    "roles/monitoring.metricWriter",   # Allows sending metrics to Cloud Monitoring
-    "roles/monitoring.viewer",         # Allows the node to self-monitor
+    "roles/logging.logWriter",       # Allows sending logs to Cloud Logging
+    "roles/monitoring.metricWriter", # Allows sending metrics to Cloud Monitoring
+    "roles/monitoring.viewer",       # Allows the node to self-monitor
   ]
 }
 

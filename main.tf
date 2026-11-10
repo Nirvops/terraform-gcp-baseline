@@ -1,7 +1,7 @@
 # Defines the required Terraform version and global settings
 terraform {
   required_version = ">= 1.6.0"
-  
+
   required_providers {
     google = {
       source  = "hashicorp/google"
@@ -43,12 +43,12 @@ resource "google_compute_subnetwork" "vpc_subnet" {
 }
 
 resource "google_container_cluster" "primary" {
-  name     = "my-custom-gke-cluster"
-  location = var.gcp_zone
+  name                     = "my-custom-gke-cluster"
+  location                 = var.gcp_zone
   remove_default_node_pool = true
   initial_node_count       = 1
 
-  deletion_protection      = false
+  deletion_protection = false
 
   network    = google_compute_network.vpc_network.id
   subnetwork = google_compute_subnetwork.vpc_subnet.id
@@ -71,7 +71,7 @@ resource "google_container_node_pool" "primary_preemptible_nodes" {
 
     # Google recommends custom service accounts that have cloud-platform scope and permissions granted via IAM Roles.
     service_account = google_service_account.gke_nodes.email
-    oauth_scopes    = [
+    oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform"
     ]
   }
